@@ -16,7 +16,7 @@ User Function Rfata049()
 	Local cReturn:=	''
 	
 	oMdl := fwModelActive()
-	If oMdl <> nil
+	If oMdl <> nil .and. "M->B1_" $ cVar
 		oMaster := oMdl:getModel(oMdl:aModelStruct[1][2])
 		if oMaster <> nil 
 			If cVar=="M->B1_COD"
@@ -25,7 +25,7 @@ User Function Rfata049()
 				oMaster:loadValue(Substr(cVar,4,10), B1DSCAcent(&cVar))	
 			EndIf
 		EndIf
-	Else
+	Else 
 		If cVar == "M->C7_OBS"	 
 				cReturn	:= C7ObsAcent(&cVar)
 		ElseIf cVar == "M->C1_OBS"	
