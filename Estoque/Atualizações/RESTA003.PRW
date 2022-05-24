@@ -822,7 +822,7 @@ Static Function AtualizaOP()
 
 	lFinalizada := .F.
 	IF ("FINALIZADA" $ cSetor)
-		SZS->(ORDSETFOCUS(2))
+		SZS->(DbSetOrder(2))
 		IF SZS->(DBSEEK(xFilial("SZS") + _cNumOP))
 			WHILE ALLTRIM(SZS->ZS_OP) == ALLTRIM(_cNumOP) .and. !SZS->(EOF()) .AND. !lFinalizada
 				IF cCodSetor $ SZS->ZS_POSICAO  // nao deixa que a OP seja finalizada no mesmo setor 2 vezes. Isso e necessario pq a mesma OP pode ser finalizada na Funilaria e na Pintura, por exemplo
